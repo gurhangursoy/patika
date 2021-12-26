@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon } from '@fortawesome/free-solid-svg-icons'
 
 const Navbar = () => {
+
+  const [theme, setTheme] = useState("light")
+
+  const switchTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light")
+  }
+
+  useEffect(() => {
+    document.body.className = theme
+  }, [theme])
+
   return (<>
     <nav className="custom-container navbar navbar-expand-lg navbar-light fixed-top p-4">
       <a className="navbar-brand" href="#">
@@ -16,7 +27,7 @@ const Navbar = () => {
           <div className="nav-item">Eğitimler</div>
           <div className="nav-item">Bootcampler</div>
           <div className="nav-item">
-            <button className='nav-item-icon'>
+            <button className='nav-item-icon' onClick={switchTheme}>
               <FontAwesomeIcon icon={faMoon} />
             </button>
           </div>

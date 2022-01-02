@@ -110,7 +110,7 @@ body.light .navbar {
   margin-right: 1rem;
   font-size: 1.25rem;
   line-height: inherit;
-  light-space: nowrap;
+  white-space: nowrap;
 }
 
 .navbar-brand img {
@@ -196,7 +196,7 @@ body.dark .paths-container {
 
 .paths-body {
   margin-top: auto;
-  light-space: pre-line;
+  white-space: pre-line;
   margin-bottom: 1rem;
 }
 
@@ -340,6 +340,10 @@ body.dark .paths-container {
 .paths-single-detail-container {
   margin: 20px 0px;
   border: 3px solid var(--dark);
+}
+
+body.dark .paths-single-detail-container {
+  border: 3px solid var(--light);
 }
 
 .paths-single-detail-header {

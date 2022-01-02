@@ -1,20 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from '../context/context'
 
-const PathsBox = ({ selected, setSelected, index, value }) => {
+const PathsBox = ({ value }) => {
+
+    const { selected, setSelected } = useContext(Context)
 
     const handleSelected = () => {
-        setSelected(index)
+        setSelected(value)
     }
 
     return (
-        <button
+        <p
             className="path-box"
             key={value}
-            style={{ backgroundColor: selected === index ? "#FFBF5E" : "" }}
+            style={{ backgroundColor: selected === value ? "#FFBF5E" : "" }}
             onClick={handleSelected}
         >
             {value}
-        </button>
+        </p>
     )
 }
 

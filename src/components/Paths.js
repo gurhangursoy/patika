@@ -1,13 +1,12 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { Context } from '../context/context'
 import PathsBox from "./PathsBox"
+import PathsDetail from './PathsDetail'
 
 const Paths = () => {
 
     const { editedPathBundles, editedPathsWithoutBundles } = useContext(Context)
     const data = [...editedPathBundles, ...editedPathsWithoutBundles]
-
-    const [selected, setSelected] = useState(0)
 
     return (
         <div className="paths-section">
@@ -16,15 +15,15 @@ const Paths = () => {
                 {data.map((item, index) => {
                     return (
                         <PathsBox
-                            selected={selected}
-                            setSelected={setSelected}
-                            index={index}
                             value={item.title}
+                            key={index}
                         />
                     )
                 })}
+                <PathsDetail
+                    data={data}
+                />
             </div>
-
         </div>
     )
 }

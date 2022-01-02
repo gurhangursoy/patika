@@ -41,5 +41,6 @@
   },
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
-  }
+  },
+  "[javascript]": { "editor.formatOnSave": true }
 }

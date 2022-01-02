@@ -1,6 +1,6 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMoon } from '@fortawesome/free-solid-svg-icons'
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 
 const Navbar = () => {
 
@@ -15,7 +15,7 @@ const Navbar = () => {
   }, [theme])
 
   return (<>
-    <nav className="custom-container navbar navbar-expand-lg navbar-light fixed-top p-4">
+    <nav className={`custom-container navbar navbar-${theme} navbar-expand-lg fixed-top p-4`}>
       <a className="navbar-brand" href="#">
         <img src="https://patika-prod.s3.eu-central-1.amazonaws.com/staticFiles/patikaLogo.png" alt="Patika Dev" />
       </a>
@@ -28,12 +28,13 @@ const Navbar = () => {
           <div className="nav-item">Bootcampler</div>
           <div className="nav-item">
             <button className='nav-item-icon' onClick={switchTheme}>
-              <FontAwesomeIcon icon={faMoon} />
+              {theme === "light" ? <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon icon={faSun} />}
             </button>
           </div>
         </div>
-        <div className='navbar-right'>
-          <span>Kayıt Ol</span>
+        <div className='navbar-signup'>
+          <a href="#"><span>Kayıt Ol</span>
+          </a>
         </div>
       </div>
     </nav>
